@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>塔式夹具装夹与可达性校验系统</title>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <span class="brand-mark">塔</span>
+        <div>
+          <div class="brand-title">塔式夹具校验</div>
+          <div class="brand-sub">装夹 · 可达性 · 工艺卡</div>
+        </div>
+      </div>
+      <nav id="nav">
+        <a data-page="library" class="nav-item active"><span>▣</span>元件库</a>
+        <a data-page="setup" class="nav-item"><span>▦</span>装夹布置</a>
+        <a data-page="features" class="nav-item"><span>◉</span>加工特征</a>
+        <a data-page="reach" class="nav-item"><span>⚡</span>可达性校验</a>
+        <a data-page="card" class="nav-item"><span>▤</span>工艺卡</a>
+      </nav>
+      <div class="side-bottom">
+        <button id="btn-demo" class="btn btn-warn" title="生成四面十二个阀体的演示夹具,含两块故意挡孔压板">生成演示夹具</button>
+        <button id="btn-reset" class="btn btn-ghost">清空全部数据</button>
+        <div id="perf" class="perf-line">就绪</div>
+      </div>
+    </aside>
+    <main id="main">
+      <div id="topbar">
+        <div class="tb-group" id="tb-setup-group">
+          <label>当前装夹</label>
+          <select id="setup-select"></select>
+        </div>
+        <div class="tb-group" id="tb-angle-group">
+          <label>转台 B 角</label>
+          <input id="angle-slider" type="range" min="0" max="360" step="5" value="0" />
+          <span id="angle-value" class="angle-badge">0°</span>
+        </div>
+        <div class="tb-group" id="tb-shadow-group">
+          <label><input type="checkbox" id="shadow-toggle" checked /> 主轴阴影</label>
+          <label><input type="checkbox" id="envelope-toggle" /> 刀具包络</label>
+        </div>
+        <div class="tb-spacer"></div>
+        <div id="alarm-banner" class="alarm-banner hidden"></div>
+      </div>
+      <div id="viewport"></div>
+      <div id="page-panel" class="page-panel"></div>
+    </main>
+    <div id="toast-layer"></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
